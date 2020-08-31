@@ -6,6 +6,10 @@ name: App Store
 # events but only for the master branch
 on:
   workflow_dispatch:
+    inputs:
+      TAG:
+        description: 'The tag to be build.'     
+        required: true
   
   push:
     tags: 
@@ -25,7 +29,7 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
-      run: echo ${GITHUB_REF/refs\/tags\//}
+      run: echo ${{ github.event.inputs.TAG }}
 
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
