@@ -21,10 +21,10 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Print Github Ref Old
-      run: echo $GITHUB_REF
+      run: echo ${GITHUB_REF##*/}
     
     - name: Print Github ref ne
-      run: echo ${{ github.ref }}
+      run: echo ${{ github.ref##*/ }}
      
     # Runs a single command using the runners shell
     - name: Run a one-line script
