@@ -6,6 +6,11 @@ name: Pull Request
 # events but only for the master branch
 on:
   workflow_dispatch:
+    inputs:
+      TAG:
+        description: 'The tag to be build.'     
+        required: true
+    
   pull_request:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -20,15 +25,18 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: Print Github Ref Old
-      run: echo ${GITHUB_REF##*/}
-    
-    - name: Print Github ref ne
-      run: echo ${{ github.ref ##*/ }}
+    - name: Determine Tag to Use
+      run: | 
+        if [ -z "${{ github.event.inputs.TAG }}" ]
+        then
+          echo "::set-env name=TAG_VALUE::${GITHUB_REF##*/}"
+        else
+          echo "::set-env name=TAG_VALUE::${{ github.event.inputs.TAG }}"
+        fi
      
     # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
+    - name: Print right Tag
+      run: echo $TAG_VALUE
 
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
