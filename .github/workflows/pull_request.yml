@@ -24,6 +24,14 @@ jobs:
     - name: Run a one-line script
       run: echo Hello, world!
 
+    - name: Save variable
+      run: |
+       develop=2.107
+       echo "::set-env name=DEVELOP_VERSION::$develop"
+         
+    - name: Print
+      run: echo $DEVELOP_VERSION
+
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       run: |
