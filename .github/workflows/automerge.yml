@@ -12,11 +12,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     runs-on: ubuntu-16.04
     steps:
-    - name: Checkout latest develop branch
+    - name: Checkout latest master branch
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
-        ref: 'develop'
+        ref: 'master'
           
     # Create a branch off of develop
     - name: Create Branch from develop
