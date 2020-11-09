@@ -44,5 +44,5 @@ jobs:
         labels: |
             automated
             peer review
-        reviewers: renamari,dpedley,jeffdp,ebresciano,seeegs,odunze
+        reviewers: seeegs
         draft: false
