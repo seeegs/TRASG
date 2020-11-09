@@ -11,7 +11,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
     # Create a branch off of develop
     - name: Create Branch from develop
@@ -44,5 +44,5 @@ jobs:
         labels: |
             automated
             peer review
-        reviewers: renamari,dpedley,jeffdp,ebresciano,seeegs,odunze
+        reviewers: seeegs
         draft: false
