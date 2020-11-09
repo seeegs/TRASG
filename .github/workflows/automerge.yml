@@ -30,6 +30,7 @@ jobs:
       uses: devmasx/merge-branch@v1.3.1
       with:
         type: now
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         from_branch: 'release-2.109'
         target_branch: 'automerge-release-2.109'
       
