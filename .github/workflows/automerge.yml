@@ -31,7 +31,7 @@ jobs:
       with:
         type: now
         from_branch: 'release-2.109'
-        to_branch: 'automerge-release-2.109'
+        target_branch: 'automerge-release-2.109'
       
       # Create a PR for this merge
     - name: Create pull request for release 2.109 -> develop merge
