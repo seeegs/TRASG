@@ -45,4 +45,4 @@ jobs:
             automated
             peer review
         reviewers: renamari,dpedley,jeffdp,ebresciano,seeegs,odunze
-          draft: false
+        draft: false
