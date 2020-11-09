@@ -19,14 +19,14 @@ jobs:
         ref: 'master'
           
     # Create a branch off of develop
-    - name: Create Branch from develop
+    - name: Create Branch from master
       uses: peterjgrainger/action-create-branch@v2.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         branch: 'automerge-release-2.109'
       
-    - name: Merge release to this develop branch
+    - name: Merge release to this branch of master
       uses: devmasx/merge-branch@v1.3.1
       with:
         type: now
@@ -34,13 +34,13 @@ jobs:
         target_branch: 'automerge-release-2.109'
       
       # Create a PR for this merge
-    - name: Create pull request for release 2.109 -> develop merge
+    - name: Create pull request for release 2.109 -> master merge
       uses: peter-evans/create-pull-request@v3
       with:
-        commit-message: Merge of release-2.109 into develop
-        branch: automerge-release-2.109
+        commit-message: Merge of release-2.109 into master
+        branch: 'automerge-release-2.109'
         delete-branch: true
-        base: develop
+        base: master
         title: '[Automated] Merge release -> develop'
         body: |
             # Automated Merge Release -> Develop
