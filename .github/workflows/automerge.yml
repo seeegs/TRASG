@@ -12,6 +12,12 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     runs-on: ubuntu-16.04
     steps:
+    - name: Checkout latest develop branch
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+        ref: 'develop'
+          
     # Create a branch off of develop
     - name: Create Branch from develop
       uses: peterjgrainger/action-create-branch@v2.0.1
