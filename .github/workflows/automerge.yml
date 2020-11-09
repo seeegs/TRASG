@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Automerge
 
 # Controls when the action will run. Triggers the workflow on push or pull request
@@ -17,10 +15,10 @@ jobs:
     # Create a branch off of develop
     - name: Create Branch from develop
       uses: peterjgrainger/action-create-branch@v2.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
         branch: 'automerge-release-2.109'
-      
       
     - name: Merge release to this develop branch
       uses: devmasx/merge-branch@v1.3.1
