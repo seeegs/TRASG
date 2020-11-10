@@ -32,7 +32,7 @@ jobs:
       with:
         branch: automerge-${{ steps.generate-uuid.outputs.uuid }}
      
-   - name: Checkout branch of develop branch
+    - name: Checkout branch of develop branch
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
