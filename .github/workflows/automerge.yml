@@ -31,12 +31,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         branch: automerge-${{ steps.generate-uuid.outputs.uuid }}
-        
-    - name: Checkout branch of develop branch
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-        ref: automerge-${{ steps.generate-uuid.outputs.uuid }}
       
     - name: Merge release to this branch of develop
       uses: devmasx/merge-branch@v1.3.1
@@ -45,6 +39,12 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         from_branch: release-2.110
         target_branch: automerge-${{ steps.generate-uuid.outputs.uuid }}
+    
+    - name: Checkout branch of develop branch
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+        ref: automerge-${{ steps.generate-uuid.outputs.uuid }}
     
       # Create a PR for this merge
     - name: Create pull request for release branch changes
