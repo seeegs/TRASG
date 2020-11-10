@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
-        ref: develop
+        ref: release-2.110
         
     - name: Set UUID
       id: generate-uuid
@@ -32,12 +32,12 @@ jobs:
       with:
         branch: automerge-${{ steps.generate-uuid.outputs.uuid }}
       
-    - name: Merge release to this branch of develop
+    - name: Merge develop to this release branch
       uses: devmasx/merge-branch@v1.3.1
       with:
         type: now
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        from_branch: release-2.110
+        from_branch: develop
         target_branch: automerge-${{ steps.generate-uuid.outputs.uuid }}
     
       # Create a PR for this merge
