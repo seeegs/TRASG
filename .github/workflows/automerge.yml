@@ -40,12 +40,17 @@ jobs:
         from_branch: release-2.109
         target_branch: automerge-${{ steps.generate-uuid.outputs.uuid }}
 
+    - name: checkout autobranch merge
+      uses: actions/checkout@v2
+      with:
+        ref: automerge-${{ steps.generate-uuid.outputs.uuid }}
+    
       # Create a PR for this merge
     - name: Create pull request for release 2.109 -> master merge
       uses: peter-evans/create-pull-request@v3
       with:
         commit-message: Merge of release-2.109 into master
-        branch: automerge-${{ steps.generate-uuid.outputs.uuid }}
+        # branch: automerge-${{ steps.generate-uuid.outputs.uuid }}
         delete-branch: false
         token: ${{ secrets.GITHUB_TOKEN }}
         base: master
