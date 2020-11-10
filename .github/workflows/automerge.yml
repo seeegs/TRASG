@@ -40,7 +40,7 @@ jobs:
       with:
         commit-message: Merge of release-2.109 into master
         branch: 'automerge-release-2.109'
-        delete-branch: true
+        delete-branch: false
         token: ${{ secrets.GITHUB_TOKEN }}
         base: master
         title: '[Automated] Merge release -> develop'
